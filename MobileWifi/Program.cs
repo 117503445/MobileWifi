@@ -10,27 +10,23 @@ namespace MobileWifi
     {
         static void Main(string[] args)
         {
-            ForegroundColor = ConsoleColor.Green;
             while (true)
             {
 
-                WriteLine($"Running at {DateTime.Now},Wifi已经{(IsRunningWifi() ? "开启" : "关闭")}");
-                Write("0.Exit ");
-                Write("1.StartWifi ");
-                Write("2.StopWifi ");
-                Write("3.ShowCilents ");
+                WriteLine($"Running at {DateTime.Now},Wifi已经{(IsRunningWifi() ? "开启" : "关闭")}", ForegroundColor = ConsoleColor.Green);
+                Write("0.Exit ", ForegroundColor = ConsoleColor.Green);
+                Write("1.StartWifi ", ForegroundColor = ConsoleColor.Green);
+                Write("2.StopWifi ", ForegroundColor = ConsoleColor.Green);
+                Write("3.ShowCilents ", ForegroundColor = ConsoleColor.Green);
                 WriteLine();
-                var f = ForegroundColor;
                 ForegroundColor = ConsoleColor.Cyan;
                 var b = Int32.TryParse(ReadLine(), out int i);
-                ForegroundColor = f;
                 if (b)
                 {
                     switch (i)
                     {
                         case 0:
-                            ForegroundColor = ConsoleColor.Yellow;
-                            WriteLine("Bye");
+                            WriteLine("Bye", ForegroundColor = ConsoleColor.Yellow);
                             System.Threading.Thread.Sleep(1000);
                             return;
                         case 1:
@@ -47,7 +43,7 @@ namespace MobileWifi
                             {
                                 if (str.Contains("已经过身份验证"))
                                 {
-                                   WriteLine(str);
+                                    WriteLine(str, ForegroundColor = ConsoleColor.White);
                                 }
                             }
                             break;
@@ -58,7 +54,7 @@ namespace MobileWifi
                 }
                 else
                 {
-                    WriteLine("不合法的输入");
+                    WriteLine("不合法的输入", ForegroundColor = ConsoleColor.Red);
                 }
 
 
@@ -84,18 +80,15 @@ namespace MobileWifi
             p.Close();
             if (isWriteLine)
             {
-                var i = ForegroundColor;
-                ForegroundColor = ConsoleColor.White;
                 string[] striparr = output.Split(new string[] { "\r\n" }, StringSplitOptions.None);
                 striparr = striparr.Where(str => !string.IsNullOrEmpty(str)).ToArray();
                 foreach (var str in striparr)
                 {
                     if (str != "" && !str.Contains("Micro"))
                     {
-                        WriteLine(str);
+                        WriteLine(str, ForegroundColor = ConsoleColor.White);
                     }
                 }
-                ForegroundColor = i;
             }
 
             return output;

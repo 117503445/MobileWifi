@@ -1,0 +1,1 @@
+netsh wlan set hostednetwork mode=allow ssid=CHGZ-FreeWifi key=55555555
