@@ -48,7 +48,7 @@ namespace MobileWifi
                             }
                             break;
                         default:
-                            WriteLine("???");
+                            WriteLine("???",ForegroundColor=ConsoleColor.Red);
                             break;
                     }
                 }

@@ -58,6 +58,9 @@
   <PropertyGroup>
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Help\Wifi.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -75,6 +78,7 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="Properties\app.manifest" />
+    <Content Include="Help\Wifi.ico" />
     <Content Include="PS1\Check.ps1">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
